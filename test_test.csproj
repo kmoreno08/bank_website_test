@@ -55,7 +55,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IndexPage.cs" />
-    <Compile Include="UnitTest1.cs" />
+    <Compile Include="SignupPage.cs" />
+    <Compile Include="WelcomePage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
