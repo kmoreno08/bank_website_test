@@ -8,7 +8,7 @@ using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 
-namespace test_test
+namespace KM_Bank
 {
 
     public class IndexPage

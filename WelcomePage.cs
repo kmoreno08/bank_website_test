@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace test_test
+namespace KM_Bank
 {
     class WelcomePage
     {
