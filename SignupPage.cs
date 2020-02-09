@@ -15,7 +15,7 @@ namespace KM_Bank
     {
         IWebDriver driver;
         //Account number needs to different then account created
-        string account_number = "3";
+        string account_number = "2";
         [SetUp]
         public void open_browser()
         {

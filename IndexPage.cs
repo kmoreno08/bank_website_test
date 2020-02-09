@@ -33,6 +33,28 @@ namespace KM_Bank
                 {
                     IWebElement right_button = driver.FindElement(By.CssSelector("body>div>div.carousel>button.carousel__button.carousel__button--right>i"));
                     right_button.Click();
+                    Thread.Sleep(2000);
+                 
+                    right_button.Click();
+                    Thread.Sleep(2000);
+                  
+                    right_button.Click();
+                    Thread.Sleep(2000);
+                  
+                    right_button.Click();
+                    Thread.Sleep(2000);
+                   
+                    right_button.Click();
+                    Thread.Sleep(2000);
+                  
+                    right_button.Click();
+                    Thread.Sleep(2000);
+                   
+                    right_button.Click();
+                    Thread.Sleep(2000);
+                   
+                    right_button.Click();
+                    Thread.Sleep(2000);
                     break;
                 }
                 catch (Exception e)
@@ -50,6 +72,19 @@ namespace KM_Bank
                 {
                     IWebElement left_button = driver.FindElement(By.CssSelector("body>div>div.carousel>button.carousel__button.carousel__button--left>i"));
                     left_button.Click();
+                    Thread.Sleep(2000);
+                    left_button.Click();
+                    Thread.Sleep(2000);
+                    left_button.Click();
+                    Thread.Sleep(2000);
+                    left_button.Click();
+                    Thread.Sleep(2000);
+                    left_button.Click();
+                    Thread.Sleep(2000);
+                    left_button.Click();
+                    Thread.Sleep(2000);
+                    left_button.Click();
+                    Thread.Sleep(2000);
                     break;
                 }
                 catch (Exception e)
