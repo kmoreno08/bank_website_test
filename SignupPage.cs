@@ -14,8 +14,8 @@ namespace KM_Bank
     class SignupPage
     {
         IWebDriver driver;
-        //Account number needs to be same for log in test on WelcomePage
-        string account_number = "2";
+        //Account number needs to different then account created
+        string account_number = "3";
         [SetUp]
         public void open_browser()
         {
@@ -95,7 +95,7 @@ namespace KM_Bank
             }
         }
         [Test]
-        public void create_account()
+        public void create_account_pass() 
         {
             IWebElement signup_username_text_box = driver.FindElement(By.CssSelector("body>div>div>form>input[type=text]:nth-child(2)"));
             IWebElement signup_email_text_box = driver.FindElement(By.CssSelector("body>div>div>form>input[type=text]:nth-child(4)"));
@@ -118,9 +118,34 @@ namespace KM_Bank
             signup_login.Click();
             Thread.Sleep(5000);
         }
+
+        [Test]
+        public void create_account_fail() 
+        {
+            IWebElement signup_username_text_box = driver.FindElement(By.CssSelector("body>div>div>form>input[type=text]:nth-child(2)"));
+            IWebElement signup_email_text_box = driver.FindElement(By.CssSelector("body>div>div>form>input[type=text]:nth-child(4)"));
+            IWebElement signup_pass_text_box = driver.FindElement(By.CssSelector("body>div>div>form>input[type=password]:nth-child(6)"));
+            IWebElement signup_pass_repeat_text_box = driver.FindElement(By.CssSelector("body>div>div>form>input[type=password]:nth-child(8)"));
+            IWebElement signup_login = driver.FindElement(By.CssSelector("body>div>div>form>input[type=submit]:nth-child(9)"));
+
+            signup_username_text_box.Clear();
+            signup_username_text_box.SendKeys("fail" + account_number);
+
+            signup_email_text_box.Clear();
+            signup_email_text_box.SendKeys("fail@gmail.com");
+
+            signup_pass_text_box.Clear();
+            signup_pass_text_box.SendKeys("fail");
+
+            signup_pass_repeat_text_box.Clear();
+            signup_pass_repeat_text_box.SendKeys("failrepeat");
+
+            signup_login.Click();
+            Thread.Sleep(5000);
+        }
         [Test]
         //Login with created test account, once logged in will log out
-        public void login_create_account()
+        public void login_create_account_pass() 
         {
 
             try
@@ -156,10 +181,51 @@ namespace KM_Bank
             }
             catch (Exception e)
             {
-                Console.WriteLine("SignupPage login create account - Error:  " + e);
+                Console.WriteLine("SignupPage login create account: Pass - Error:  " + e);
                 Console.WriteLine("May need to change account number to a number that has not been used.");
             }
             
+        }
+
+
+        [Test]
+        //Fail login test after account creation
+        public void login_create_account_fail() 
+        {
+
+            try
+            {
+                IWebElement signin_link = driver.FindElement(By.CssSelector("body>div>div>form>a"));
+                signin_link.Click();
+                Thread.Sleep(4000);
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("SignupPage login create account - Error:  " + e);
+            }
+
+            try
+            {
+                IWebElement test_account_username_text_box = driver.FindElement(By.CssSelector("body>div>div.loginbox>form>input[type=text]:nth-child(2)"));
+                IWebElement test_account_password_text_box = driver.FindElement(By.CssSelector("body>div>div.loginbox>form>input[type=password]:nth-child(4)"));
+                IWebElement test_account_login = driver.FindElement(By.CssSelector("body>div>div.loginbox>form>input[type=submit]:nth-child(5)"));
+                test_account_username_text_box.Clear();
+                test_account_username_text_box.SendKeys("failTest");
+                test_account_password_text_box.Clear();
+                test_account_password_text_box.SendKeys("failTest");
+                Thread.Sleep(5000);
+
+                test_account_login.Click();
+                Thread.Sleep(5000);
+
+                
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("SignupPage login create account: Fail - Error:  " + e);
+            }
+
         }
 
         [TearDown]
