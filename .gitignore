@@ -1,1 +1,7 @@
 .vs
+.packages
+
+*.dll
+*.pdb
+*.xml
+*.cache
