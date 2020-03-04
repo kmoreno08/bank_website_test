@@ -23,9 +23,8 @@ namespace KM_Bank
         {
             driver = new ChromeDriver();
             driver.Manage().Window.Maximize();
-            //Thread.Sleep(4000);
             this.driver.Navigate().GoToUrl(@"http://www.kevinstevenmoreno.com/projects/KM_Bank_DB/index.php");
-            Thread.Sleep(2000);
+            Thread.Sleep(1000);
            
         }
 
@@ -34,48 +33,43 @@ namespace KM_Bank
         [Test]
         public void carousel_arrow_buttons()
         {
-           
-                Thread.Sleep(2000);
                 try
                 {
 
-                Thread.Sleep(2000);
+                    //Thread.Sleep(2000);
                    
                     IWebElement right_button = driver.FindElement(By.CssSelector("body>div>div.carousel>button.carousel__button.carousel__button--right>i"));
 
                     
                     right_button.Click();
-                    Thread.Sleep(2000);
+                    Thread.Sleep(1000);
                  
                     right_button.Click();
-                    Thread.Sleep(2000);
+                    Thread.Sleep(1000);
                   
                     right_button.Click();
-                    Thread.Sleep(2000);
+                    Thread.Sleep(1000);
                   
                     right_button.Click();
-                    Thread.Sleep(2000);
+                    Thread.Sleep(1000);
                    
                     right_button.Click();
-                    Thread.Sleep(2000);
+                    Thread.Sleep(1000);
                   
                     right_button.Click();
-                    Thread.Sleep(2000);
+                    Thread.Sleep(1000);
                    
                     right_button.Click();
-                    Thread.Sleep(2000);
+                    Thread.Sleep(1000);
                    
                     right_button.Click();
-                    Thread.Sleep(2000);
+                    Thread.Sleep(1000);
                 
                 }
                 catch (Exception e)
                 {
                     Console.WriteLine("Carousel right button - Error:  " + e); 
                 }
-            
-
-            Thread.Sleep(2000);
 
             //Left arrow button
             for (int i = 0; i <= 2; i++)
@@ -84,19 +78,19 @@ namespace KM_Bank
                 {
                     IWebElement left_button = driver.FindElement(By.CssSelector("body>div>div.carousel>button.carousel__button.carousel__button--left>i"));
                     left_button.Click();
-                    Thread.Sleep(2000);
+                    Thread.Sleep(1000);
                     left_button.Click();
-                    Thread.Sleep(2000);
+                    Thread.Sleep(1000);
                     left_button.Click();
-                    Thread.Sleep(2000);
+                    Thread.Sleep(1000);
                     left_button.Click();
-                    Thread.Sleep(2000);
+                    Thread.Sleep(1000);
                     left_button.Click();
-                    Thread.Sleep(2000);
+                    Thread.Sleep(1000);
                     left_button.Click();
-                    Thread.Sleep(2000);
+                    Thread.Sleep(1000);
                     left_button.Click();
-                    Thread.Sleep(2000);
+                    Thread.Sleep(1000);
                    
                     break;
                 }
@@ -105,7 +99,7 @@ namespace KM_Bank
                     Console.WriteLine("Carousel left button - Error:  " + e);
                 }
             }
-            Thread.Sleep(2000);
+            Thread.Sleep(1000);
         }
     
         [Test]
@@ -125,30 +119,28 @@ namespace KM_Bank
                 IWebElement carousel_ind_button_7 = driver.FindElement(By.CssSelector("body>div>div.carousel__nav>button:nth-child(7)"));
                 IWebElement carousel_ind_button_8 = driver.FindElement(By.CssSelector("body>div>div.carousel__nav>button:nth-child(8)"));
                 carousel_ind_button_8.Click();
-                    Thread.Sleep(2000);
+                    Thread.Sleep(1000);
                     carousel_ind_button_7.Click();
-                    Thread.Sleep(2000);
+                    Thread.Sleep(1000);
                     carousel_ind_button_6.Click();
-                    Thread.Sleep(2000);
+                    Thread.Sleep(1000);
                     carousel_ind_button_5.Click();
-                    Thread.Sleep(2000);
+                    Thread.Sleep(1000);
                     carousel_ind_button_4.Click();
-                    Thread.Sleep(2000);
+                    Thread.Sleep(1000);
                     carousel_ind_button_3.Click();
-                    Thread.Sleep(2000);
+                    Thread.Sleep(1000);
                     carousel_ind_button_2.Click();
-                    Thread.Sleep(2000);
+                    Thread.Sleep(1000);
                     carousel_ind_button_1.Click();
-                    Thread.Sleep(2000);
+                    Thread.Sleep(1000);
                     break;
                     }
                     catch (Exception e)
                     {
                         Console.WriteLine("Carousel Indicator button - Error:  " + e);
-                        
                 }
             }
-            Thread.Sleep(2000);
  
         }
 
@@ -172,7 +164,7 @@ namespace KM_Bank
                 }
             }
             //Page reloads after click
-            Thread.Sleep(3000);
+            Thread.Sleep(1000);
 
             // 2 of 3
             for (int i = 0; i <= 2; i++)
@@ -189,9 +181,6 @@ namespace KM_Bank
                 }
             }
 
-            //Page reloads after click
-            Thread.Sleep(3000);
-
             // 3 of 3
             for (int i = 0; i <= 2; i++)
             {
@@ -206,8 +195,6 @@ namespace KM_Bank
                     Console.WriteLine("Index Page grid button 3 0f 3 - Error:  " + e);
                 }
             }
-            //Page reloads after click
-            Thread.Sleep(3000);
         }
 
         //Login box - Enroll Link
@@ -218,7 +205,7 @@ namespace KM_Bank
             {
                 IWebElement enroll_link = driver.FindElement(By.CssSelector("body>div>div.loginbox>form>a"));
                 enroll_link.Click();
-                Thread.Sleep(3000);
+                Thread.Sleep(1000);
 
                 //Check if url is correct
                 String signup_URL = driver.Url;
@@ -251,9 +238,7 @@ namespace KM_Bank
                     Thread.Sleep(4000);
 
                     login_button.Click();
-                    Thread.Sleep(4000);
-                 
-
+                    Thread.Sleep(1000);
 
                     //Check if url is correct
                     String current_URL = driver.Url;
@@ -284,10 +269,10 @@ namespace KM_Bank
 
                     password_fail_text_box.Clear();
                     password_fail_text_box.SendKeys("testFail");
-                    Thread.Sleep(4000);
+                    Thread.Sleep(1000);
 
                     login_button_fail.Click();
-                    Thread.Sleep(4000);
+                    Thread.Sleep(1000);
 
                     //Log in fail 
                     String current_URL = driver.Url;
@@ -314,32 +299,32 @@ namespace KM_Bank
                     IWebElement footer_facebook = driver.FindElement(By.CssSelector("body>div>footer>div>div>a:nth-child(1)>i"));
                     footer_facebook.Click();
                     this.driver.Navigate().Back();
-                    Thread.Sleep(8000);
+                    Thread.Sleep(1000);
 
                     IWebElement footer_insta = driver.FindElement(By.CssSelector("body>div>footer>div>div>a:nth-child(2)>i"));
                     footer_insta.Click();
                     this.driver.Navigate().Back();
-                    Thread.Sleep(6000);
+                    Thread.Sleep(1000);
 
                     IWebElement footer_linkedin = driver.FindElement(By.CssSelector("body>div>footer>div>div>a:nth-child(3)>i"));
                     footer_linkedin.Click();
                     this.driver.Navigate().Back();
-                    Thread.Sleep(6000);
+                    Thread.Sleep(1000);
 
                     IWebElement footer_pinterest = driver.FindElement(By.CssSelector("body>div>footer>div>div>a:nth-child(4)>i"));
                     footer_pinterest.Click();
                     this.driver.Navigate().Back();
-                    Thread.Sleep(6000);
+                    Thread.Sleep(1000);
 
                     IWebElement footer_twitter = driver.FindElement(By.CssSelector("body>div>footer>div>div>a:nth-child(5)>i"));
                     footer_twitter.Click();
                     this.driver.Navigate().Back();
-                    Thread.Sleep(6000);
+                    Thread.Sleep(1000);
 
                     IWebElement footer_youtube = driver.FindElement(By.CssSelector("body>div>footer>div>div>a:nth-child(6)>i"));
                     footer_youtube.Click();
                     this.driver.Navigate().Back();
-                    Thread.Sleep(6000);
+                    Thread.Sleep(1000);
                     break;
 
                 }

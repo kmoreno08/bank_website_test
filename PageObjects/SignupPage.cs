@@ -19,14 +19,14 @@ namespace KM_Bank
         IWebDriver driver;
 
         //account number
-        string account_number = "5";
+        string account_number = "6";
         [SetUp]
         public void open_browser()
         {
             driver = new ChromeDriver();
             driver.Manage().Window.Maximize();
             this.driver.Navigate().GoToUrl(@"http://www.kevinstevenmoreno.com/projects/KM_Bank_DB/signup.php");
-            Thread.Sleep(4000);
+            Thread.Sleep(1000);
         }
 
         [Test]
@@ -40,39 +40,39 @@ namespace KM_Bank
                 {
                     IWebElement signup_footer_facebook = driver.FindElement(By.CssSelector("body>footer>div>div>a:nth-child(1)"));
                     signup_footer_facebook.Click();
-                    Thread.Sleep(6000);
+                    Thread.Sleep(1000);
                     this.driver.Navigate().Back();
-                    Thread.Sleep(8000);
+                    Thread.Sleep(1000);
 
                     IWebElement signup_footer_insta = driver.FindElement(By.CssSelector("body>footer>div>div>a:nth-child(2)"));
                     signup_footer_insta.Click();
-                    Thread.Sleep(6000);
+                    Thread.Sleep(1000);
                     this.driver.Navigate().Back();
-                    Thread.Sleep(6000);
+                    Thread.Sleep(1000);
 
                     IWebElement signup_footer_linkedin = driver.FindElement(By.CssSelector("body>footer>div>div>a:nth-child(3)"));
                     signup_footer_linkedin.Click();
-                    Thread.Sleep(6000);
+                    Thread.Sleep(1000);
                     this.driver.Navigate().Back();
-                    Thread.Sleep(6000);
+                    Thread.Sleep(1000);
 
                     IWebElement signup_footer_pinterest = driver.FindElement(By.CssSelector("body>footer>div>div>a:nth-child(4)"));
                     signup_footer_pinterest.Click();
-                    Thread.Sleep(6000);
+                    Thread.Sleep(1000);
                     this.driver.Navigate().Back();
-                    Thread.Sleep(6000);
+                    Thread.Sleep(1000);
 
                     IWebElement signup_footer_twitter = driver.FindElement(By.CssSelector("body>footer>div>div>a:nth-child(5)"));
                     signup_footer_twitter.Click();
-                    Thread.Sleep(6000);
+                    Thread.Sleep(1000);
                     this.driver.Navigate().Back();
-                    Thread.Sleep(6000);
+                    Thread.Sleep(1000);
 
                     IWebElement signup_footer_youtube = driver.FindElement(By.CssSelector("body>footer>div>div>a:nth-child(6)"));
                     signup_footer_youtube.Click();
-                    Thread.Sleep(6000);
+                    Thread.Sleep(1000);
                     this.driver.Navigate().Back();
-                    Thread.Sleep(6000);
+                    Thread.Sleep(1000);
                     break;
                 }
                 catch (Exception e)
@@ -88,7 +88,7 @@ namespace KM_Bank
             try { 
              IWebElement login_link = driver.FindElement(By.CssSelector("body>div>div>form>a"));
             login_link.Click();
-            Thread.Sleep(4000);
+            Thread.Sleep(1000);
              //Check if url is correct
              String current_URL = driver.Url;
              Assert.That(current_URL, Is.EqualTo("http://www.kevinstevenmoreno.com/projects/KM_Bank_DB/index.php"));
@@ -126,8 +126,6 @@ namespace KM_Bank
             //Check if url is correct
             String current_URL = driver.Url;
             Assert.That(current_URL, Is.EqualTo("http://www.kevinstevenmoreno.com/projects/KM_Bank_DB/index.php?signup=success"));
-
-            // Thread.Sleep(5000);
         }
 
         [Test]
@@ -155,8 +153,8 @@ namespace KM_Bank
             signup_login.Click();
             String current_URL = driver.Url;
             Assert.That(current_URL, Is.EqualTo("http://www.kevinstevenmoreno.com/projects/KM_Bank_DB/welcome.php?login=success"));
-            //Thread.Sleep(5000);
         }
+
         [Test]
         /*Login with created test account
          * once logged in will log out
@@ -169,7 +167,7 @@ namespace KM_Bank
             {
                 IWebElement signin_link = driver.FindElement(By.CssSelector("body>div>div>form>a"));
                 signin_link.Click();
-                Thread.Sleep(4000);
+                Thread.Sleep(1000);
                
             }
             catch (Exception e)
@@ -187,10 +185,10 @@ namespace KM_Bank
                 test_account_username_text_box.SendKeys("autoTestAccount" + account_number);
                 test_account_password_text_box.Clear();
                 test_account_password_text_box.SendKeys("test");
-                Thread.Sleep(5000);
+                Thread.Sleep(1000);
 
                 test_account_login_button.Click();
-                Thread.Sleep(5000);
+                Thread.Sleep(1000);
                
                 String current_URL = driver.Url;
                 Assert.That(current_URL, Is.EqualTo("http://www.kevinstevenmoreno.com/projects/KM_Bank_DB/welcome.php?login=success"));
@@ -199,7 +197,7 @@ namespace KM_Bank
                 IWebElement sign_out_button = driver.FindElement(By.CssSelector("body>div.infobox-img>div>div>div>form>a>input[type=button]"));
                 sign_out_button.Click();
                
-               Thread.Sleep(5000);
+               Thread.Sleep(1000);
             }
             catch (Exception e)
             {
@@ -219,7 +217,7 @@ namespace KM_Bank
             {
                 IWebElement signin_link = driver.FindElement(By.CssSelector("body>div>div>form>a"));
                 signin_link.Click();
-                Thread.Sleep(4000);
+                Thread.Sleep(1000);
 
             }
             catch (Exception e)
@@ -237,10 +235,10 @@ namespace KM_Bank
                 test_account_username_text_box.SendKeys("failTest");
                 test_account_password_text_box.Clear();
                 test_account_password_text_box.SendKeys("failTest");
-                Thread.Sleep(5000);
+                Thread.Sleep(1000);
 
                 test_account_login.Click();
-                Thread.Sleep(5000);
+                Thread.Sleep(1000);
                 String current_URL = driver.Url;
                 Assert.That(current_URL, Is.EqualTo("http://www.kevinstevenmoreno.com/projects/KM_Bank_DB/welcome.php?login=success"));
 
@@ -249,7 +247,6 @@ namespace KM_Bank
             {
                 Console.WriteLine("SignupPage login create account: Fail - Error:  " + e);
             }
-
         }
 
         [TearDown]

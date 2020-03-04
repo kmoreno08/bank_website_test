@@ -23,7 +23,7 @@ namespace KM_Bank
             driver = new ChromeDriver();
             driver.Manage().Window.Maximize();
             this.driver.Navigate().GoToUrl(@"http://www.kevinstevenmoreno.com/projects/KM_Bank_DB/index.php");
-            Thread.Sleep(4000);
+            Thread.Sleep(1000);
 
             //Need to log in first
             try
@@ -39,7 +39,7 @@ namespace KM_Bank
                 Thread.Sleep(4000);
 
                 login_button.Click();
-                Thread.Sleep(4000);
+                Thread.Sleep(1000);
             }
             catch (Exception e)
             {
@@ -65,7 +65,7 @@ namespace KM_Bank
                     
                     IWebElement submit_amount_button = driver.FindElement(By.CssSelector("body>div.infobox-img>div>div>div>form>input[type=submit]:nth-child(4)"));
                     submit_amount_button.Click();
-                    Thread.Sleep(2000);
+                    Thread.Sleep(1000);
 
                     //check correct amount
                     string account_amount = driver.FindElement(By.CssSelector("body>div.infobox-img>div>div>div>form>input[type=number]:nth-child(2)")).GetAttribute("value");
@@ -78,12 +78,12 @@ namespace KM_Bank
                     IWebElement submit_amount_button_reset = driver.FindElement(By.CssSelector("body>div.infobox-img>div>div>div>form>input[type=submit]:nth-child(4)"));
                     Thread.Sleep(1000);
                     submit_amount_button_reset.Click();
-                    Thread.Sleep(2000);
+                    Thread.Sleep(1000);
 
                     //Sign out
                     IWebElement sign_out_button = driver.FindElement(By.CssSelector("body>div.infobox-img>div>div>div>form>a>input[type=button]"));
                     sign_out_button.Click();
-                    Thread.Sleep(2000);
+                    Thread.Sleep(1000);
                 }
                 catch (Exception e)
                 {
@@ -110,7 +110,7 @@ namespace KM_Bank
 
                 IWebElement submit_amount_button = driver.FindElement(By.CssSelector("body>div.infobox-img>div>div>div>form>input[type=submit]:nth-child(4)"));
                 submit_amount_button.Click();
-                Thread.Sleep(2000);
+                Thread.Sleep(1000);
 
                 //check amount, should fail here
                 string account_amount = driver.FindElement(By.CssSelector("body>div.infobox-img>div>div>div>form>input[type=number]:nth-child(2)")).GetAttribute("value");
@@ -123,12 +123,12 @@ namespace KM_Bank
                 IWebElement submit_amount_button_reset = driver.FindElement(By.CssSelector("body>div.infobox-img>div>div>div>form>input[type=submit]:nth-child(4)"));
                 Thread.Sleep(1000);
                 submit_amount_button_reset.Click();
-                Thread.Sleep(2000);
+                Thread.Sleep(1000);
 
                 //Sign out
                 IWebElement sign_out_button = driver.FindElement(By.CssSelector("body>div.infobox-img>div>div>div>form>a>input[type=button]"));
                 sign_out_button.Click();
-                Thread.Sleep(2000);
+                Thread.Sleep(1000);
             }
             catch (Exception e)
             {
@@ -146,39 +146,39 @@ namespace KM_Bank
                 {
                     IWebElement welcome_facebook = driver.FindElement(By.CssSelector("body>footer>div>div>a:nth-child(1)>i"));
                     welcome_facebook.Click();
-                    Thread.Sleep(6000);
+                    Thread.Sleep(1000);
                     this.driver.Navigate().Back();
-                    Thread.Sleep(6000);
+                    Thread.Sleep(1000);
 
                     IWebElement welcome_instagram = driver.FindElement(By.CssSelector("body>footer>div>div>a:nth-child(2)>i"));
                     welcome_instagram.Click();
-                    Thread.Sleep(6000);
+                    Thread.Sleep(1000);
                     this.driver.Navigate().Back();
-                    Thread.Sleep(6000);
+                    Thread.Sleep(1000);
 
                     IWebElement welcome_linkedin = driver.FindElement(By.CssSelector("body>footer>div>div>a:nth-child(3)>i"));
                     welcome_linkedin.Click();
-                    Thread.Sleep(6000);
+                    Thread.Sleep(1000);
                     this.driver.Navigate().Back();
-                    Thread.Sleep(6000);
+                    Thread.Sleep(1000);
 
                     IWebElement welcome_pinterest = driver.FindElement(By.CssSelector("body>footer>div>div>a:nth-child(4)>i"));
                     welcome_pinterest.Click();
-                    Thread.Sleep(6000);
+                    Thread.Sleep(1000);
                     this.driver.Navigate().Back();
-                    Thread.Sleep(6000);
+                    Thread.Sleep(1000);
 
                     IWebElement welcome_twitter = driver.FindElement(By.CssSelector("body>footer>div>div>a:nth-child(5)>i"));
                     welcome_twitter.Click();
-                    Thread.Sleep(6000);
+                    Thread.Sleep(1000);
                     this.driver.Navigate().Back();
-                    Thread.Sleep(6000);
+                    Thread.Sleep(1000);
 
                     IWebElement welcome_youtube = driver.FindElement(By.CssSelector("body>footer>div>div>a:nth-child(6)>i"));
                     welcome_youtube.Click();
-                    Thread.Sleep(6000);
+                    Thread.Sleep(1000);
                     this.driver.Navigate().Back();
-                    Thread.Sleep(6000);
+                    Thread.Sleep(1000);
                     break;
 
                 }
