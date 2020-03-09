@@ -1,3 +1,4 @@
+using System;
 using OpenQA.Selenium;
 
 namespace KM_Bank.Pages
@@ -14,14 +15,32 @@ namespace KM_Bank.Pages
 
         public void GoToWelcomePage()
         {
-            Map.loginButton.Click();
+            Map.signupLoginButton.Click();
         }
 
-        /* public SignupPage GoTo()
-         {
-             HomePage.GoToSignupPage();
-             return this;
-         }*/
+        //Method is to create user name on signup page
+        public void createAccountUsername(String strUsername)
+        {
+            Map.signupUsernameTextBox.SendKeys(strUsername);
+        }
+
+        //Method is to create an email address on signup page
+        public void createAccountEmailAddress(String strEmailAddress)
+        {
+            Map.signupEmailTextBox.SendKeys(strEmailAddress);
+        }
+
+        //Method is to create a password on signup page
+        public void createAccountPassword(String strPassword)
+        {
+            Map.signupPasswordTextBox.SendKeys(strPassword);
+        }
+
+        //Method is to repeat the created password on signup page
+        public void createRepeatAccountPassword(String strRepeatPassword)
+        {
+            Map.signupPasswordRepeatTextBox.SendKeys(strRepeatPassword);
+        }
     }
 
     public class SignupPageMap
@@ -33,6 +52,17 @@ namespace KM_Bank.Pages
             _driver = driver;
         }
 
-        public IWebElement loginButton => _driver.FindElement(By.CssSelector("body>div.infobox-img>div>div>div>form>a>input[type=button]"));
+        public IWebElement signupLoginButton => _driver.FindElement(By.CssSelector("body>div>div>form>input[type=submit]:nth-child(9)"));
+
+
+
+
+        public IWebElement signupUsernameTextBox => _driver.FindElement(By.CssSelector("body>div>div>form>input[type=text]:nth-child(2)"));
+        public IWebElement signupEmailTextBox => _driver.FindElement(By.CssSelector("body>div>div>form>input[type=text]:nth-child(4)"));
+        public IWebElement signupPasswordTextBox => _driver.FindElement(By.CssSelector("body>div>div>form>input[type=password]:nth-child(6)"));
+
+        public IWebElement signupPasswordRepeatTextBox => _driver.FindElement(By.CssSelector("body>div>div>form>input[type=password]:nth-child(8)"));
+
+
     }
 }
