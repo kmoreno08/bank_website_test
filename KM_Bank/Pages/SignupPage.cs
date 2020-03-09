@@ -13,7 +13,7 @@ namespace KM_Bank.Pages
         }
 
 
-        public void GoToWelcomePage()
+        public void clickSignupLoginButton()
         {
             Map.signupLoginButton.Click();
         }

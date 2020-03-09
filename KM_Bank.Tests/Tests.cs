@@ -73,7 +73,7 @@ namespace KM_Bank.Tests
             signupPage.createAccountEmailAddress("autoTest4@gmail.com");
             signupPage.createAccountPassword("test4");
             signupPage.createRepeatAccountPassword("test4");
-            signupPage.GoToWelcomePage();
+            signupPage.clickSignupLoginButton();
 
             String current_URL = driver.Url;
             Assert.That(current_URL, Is.EqualTo("http://www.kevinstevenmoreno.com/projects/KM_Bank_DB/index.php?signup=success"));
@@ -95,10 +95,70 @@ namespace KM_Bank.Tests
             signupPage.createAccountEmailAddress("autoTest4@gmail.com");
             signupPage.createAccountPassword("test6");
             signupPage.createRepeatAccountPassword("test4");
-            signupPage.GoToWelcomePage();
+            signupPage.clickSignupLoginButton();
 
             String current_URL = driver.Url;
             Assert.That(current_URL, Is.EqualTo("http://www.kevinstevenmoreno.com/projects/KM_Bank_DB/index.php?signup=success"));
+
+        }
+
+        /* 
+       Create account and bring user to home page
+       Then login with same credentials that was just
+       created.
+       Test should pass
+       */
+        [Test]
+        public void Create_account_then_login()
+        {
+            var homePage = new HomePage(driver);
+            var signupPage = new SignupPage(driver);
+            homePage.GoToSignupPage();
+            Thread.Sleep(1000);
+            signupPage.createAccountUsername("autoTest5");
+            signupPage.createAccountEmailAddress("autoTest5@gmail.com");
+            signupPage.createAccountPassword("test5");
+            signupPage.createRepeatAccountPassword("test5");
+            signupPage.clickSignupLoginButton();
+
+            homePage.setUsername("autoTest5");
+            homePage.setPassword("test5");
+
+            homePage.GoToWelcomePage();
+
+
+            String current_URL = driver.Url;
+            Assert.That(current_URL, Is.EqualTo("http://www.kevinstevenmoreno.com/projects/KM_Bank_DB/welcome.php?login=success"));
+
+        }
+
+        /* 
+     Create account and bring user to home page
+     Then login with same credentials that was just
+     created but with the incorrect password
+     Test should fail
+     */
+        [Test]
+        public void Create_account_then_login_incorrect_password()
+        {
+            var homePage = new HomePage(driver);
+            var signupPage = new SignupPage(driver);
+            homePage.GoToSignupPage();
+            Thread.Sleep(1000);
+            signupPage.createAccountUsername("autoTest5");
+            signupPage.createAccountEmailAddress("autoTest5@gmail.com");
+            signupPage.createAccountPassword("test5");
+            signupPage.createRepeatAccountPassword("test5");
+            signupPage.clickSignupLoginButton();
+
+            homePage.setUsername("autoTest5");
+            homePage.setPassword("FailPassword");
+
+            homePage.GoToWelcomePage();
+
+
+            String current_URL = driver.Url;
+            Assert.That(current_URL, Is.EqualTo("http://www.kevinstevenmoreno.com/projects/KM_Bank_DB/welcome.php?login=success"));
 
         }
     }
