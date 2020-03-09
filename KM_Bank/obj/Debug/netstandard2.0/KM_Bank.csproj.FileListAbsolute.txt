@@ -1,0 +1,11 @@
+C:\Users\Kevin Steven Moreno\Desktop\POM_KM_Bank_Test\KM_Bank\bin\Debug\netstandard2.0\KM_Bank.deps.json
+C:\Users\Kevin Steven Moreno\Desktop\POM_KM_Bank_Test\KM_Bank\bin\Debug\netstandard2.0\KM_Bank.dll
+C:\Users\Kevin Steven Moreno\Desktop\POM_KM_Bank_Test\KM_Bank\bin\Debug\netstandard2.0\KM_Bank.pdb
+C:\Users\Kevin Steven Moreno\Desktop\POM_KM_Bank_Test\KM_Bank\bin\Debug\netstandard2.0\Framework.dll
+C:\Users\Kevin Steven Moreno\Desktop\POM_KM_Bank_Test\KM_Bank\bin\Debug\netstandard2.0\Framework.pdb
+C:\Users\Kevin Steven Moreno\Desktop\POM_KM_Bank_Test\KM_Bank\obj\Debug\netstandard2.0\KM_Bank.csprojAssemblyReference.cache
+C:\Users\Kevin Steven Moreno\Desktop\POM_KM_Bank_Test\KM_Bank\obj\Debug\netstandard2.0\KM_Bank.AssemblyInfoInputs.cache
+C:\Users\Kevin Steven Moreno\Desktop\POM_KM_Bank_Test\KM_Bank\obj\Debug\netstandard2.0\KM_Bank.AssemblyInfo.cs
+C:\Users\Kevin Steven Moreno\Desktop\POM_KM_Bank_Test\KM_Bank\obj\Debug\netstandard2.0\KM_Bank.csproj.CopyComplete
+C:\Users\Kevin Steven Moreno\Desktop\POM_KM_Bank_Test\KM_Bank\obj\Debug\netstandard2.0\KM_Bank.dll
+C:\Users\Kevin Steven Moreno\Desktop\POM_KM_Bank_Test\KM_Bank\obj\Debug\netstandard2.0\KM_Bank.pdb
