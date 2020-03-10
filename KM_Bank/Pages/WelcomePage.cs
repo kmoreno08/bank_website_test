@@ -21,14 +21,14 @@ namespace KM_Bank.Pages
         //Changes user account amount from string to int
         public int returnIntAccountAmount()
         {
-            int accountAmount = int.Parse(Map.account_text_box.GetAttribute("value"));
+            int accountAmount = int.Parse(Map.accountTextBox.GetAttribute("value"));
             return accountAmount;
         }
 
         //Change account amount
-        public void changeAccountAmount(String number)
+        public void changeAccountAmount(String str)
         {
-            Map.account_text_box.SendKeys(number);
+            Map.accountTextBox.SendKeys(str);
         }
 
         /* 
@@ -37,7 +37,7 @@ namespace KM_Bank.Pages
         */
         public String checkDisplayAccountAmount()
         {
-            var totalDisplayAmount = Map.account_amount_display.Text;
+            var totalDisplayAmount = Map.accountAmountDisplay.Text;
             var builder = new StringBuilder();
 
             foreach (char ch in totalDisplayAmount)
@@ -65,12 +65,12 @@ public class WelcomePageMap
     }
 
 
-    public IWebElement logoutButton => _driver.FindElement(By.CssSelector("body>div>div.loginbox>form>input[type=submit]:nth-child(5)"));
+    public IWebElement logoutButton => _driver.FindElement(By.CssSelector("body>div.infobox-img>div>div>div>form>a>input[type=button]"));
 
-    public IWebElement account_text_box => _driver.FindElement(By.CssSelector("body>div.infobox-img>div>div>div>form>input[type=number]:nth-child(2)"));
+    public IWebElement accountTextBox => _driver.FindElement(By.CssSelector("body>div.infobox-img>div>div>div>form>input[type=number]:nth-child(2)"));
 
-    public IWebElement submit_amount_button => _driver.FindElement(By.CssSelector("body>div.infobox-img>div>div>div>form>input[type=submit]:nth-child(4)"));
+    public IWebElement submitAmountButton => _driver.FindElement(By.CssSelector("body>div.infobox-img>div>div>div>form>input[type=submit]:nth-child(4)"));
 
-    public IWebElement account_amount_display => _driver.FindElement(By.CssSelector(".infobox>h3:nth-child(3)"));
+    public IWebElement accountAmountDisplay => _driver.FindElement(By.CssSelector(".infobox>h3:nth-child(3)"));
 }
 

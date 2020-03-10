@@ -179,6 +179,35 @@ namespace KM_Bank.Tests
             Assert.That(intAccountAmount, Is.GreaterThanOrEqualTo(0));
         }
 
+        /* 
+       Check if the user account amount changes to string
+       Test will click submit then log out and log back in
+       w/ the same account.
+       Should not change to string and remain the same number.
+       Test should pass
+       */
+        [Test]
+        public void Change_account_amount_to_string()
+        {
+            var homePage = new HomePage(driver);
+            var welcomePage = new WelcomePage(driver);
+            homePage.setUsername("test");
+            homePage.setPassword("test");
+            homePage.GoToWelcomePage();
+
+            var originalAmount = welcomePage.returnIntAccountAmount();
+
+            welcomePage.changeAccountAmount("String");
+            welcomePage.Map.submitAmountButton.Click();
+            welcomePage.clickLogoutButton();
+
+            homePage.setUsername("test");
+            homePage.setPassword("test");
+            homePage.GoToWelcomePage();
+            var currentAccountAmount = welcomePage.returnIntAccountAmount();
+            Assert.AreEqual(originalAmount, currentAccountAmount);
+        }
+
 
 
 
@@ -197,10 +226,10 @@ namespace KM_Bank.Tests
             homePage.GoToWelcomePage();
 
             string amount = "278";
-            welcomePage.Map.account_text_box.Clear();
+            welcomePage.Map.accountTextBox.Clear();
             Thread.Sleep(1000);
             welcomePage.changeAccountAmount(amount);
-            welcomePage.Map.submit_amount_button.Click();
+            welcomePage.Map.submitAmountButton.Click();
             Thread.Sleep(1000);
             var displayAmount = welcomePage.checkDisplayAccountAmount();
 
