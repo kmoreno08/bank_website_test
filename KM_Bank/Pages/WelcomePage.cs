@@ -1,4 +1,5 @@
 using System;
+using System.Text;
 using OpenQA.Selenium;
 
 namespace KM_Bank.Pages
@@ -24,6 +25,33 @@ namespace KM_Bank.Pages
             return accountAmount;
         }
 
+        //Change account amount
+        public void changeAccountAmount(String number)
+        {
+            Map.account_text_box.SendKeys(number);
+        }
+
+        /* 
+        Amount display has letters and numbers.
+        this method only extracts the numbers
+        */
+        public String checkDisplayAccountAmount()
+        {
+            var totalDisplayAmount = Map.account_amount_display.Text;
+            var builder = new StringBuilder();
+
+            foreach (char ch in totalDisplayAmount)
+            {
+                if (Char.IsDigit(ch))
+                    builder.Append(ch);
+
+            }
+            String displayAmount = builder.ToString();
+            return displayAmount;
+        }
+
+
+
 
     }
 }
@@ -43,5 +71,6 @@ public class WelcomePageMap
 
     public IWebElement submit_amount_button => _driver.FindElement(By.CssSelector("body>div.infobox-img>div>div>div>form>input[type=submit]:nth-child(4)"));
 
+    public IWebElement account_amount_display => _driver.FindElement(By.CssSelector(".infobox>h3:nth-child(3)"));
 }
 

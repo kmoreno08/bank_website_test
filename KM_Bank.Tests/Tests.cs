@@ -167,7 +167,7 @@ namespace KM_Bank.Tests
        Test should pass
        */
         [Test]
-        public void Check_account_amount()
+        public void Check_account_amount_positive()
         {
             var homePage = new HomePage(driver);
             var welcomePage = new WelcomePage(driver);
@@ -177,6 +177,37 @@ namespace KM_Bank.Tests
 
             var intAccountAmount = welcomePage.returnIntAccountAmount();
             Assert.That(intAccountAmount, Is.GreaterThanOrEqualTo(0));
+        }
+
+
+
+
+        /* 
+      Change user account amount
+      read user display to insure change
+      Test should pass
+      */
+        [Test]
+        public void Change_account_amount()
+        {
+            var homePage = new HomePage(driver);
+            var welcomePage = new WelcomePage(driver);
+            homePage.setUsername("test");
+            homePage.setPassword("test");
+            homePage.GoToWelcomePage();
+
+            string amount = "278";
+            welcomePage.Map.account_text_box.Clear();
+            Thread.Sleep(1000);
+            welcomePage.changeAccountAmount(amount);
+            welcomePage.Map.submit_amount_button.Click();
+            Thread.Sleep(1000);
+            var displayAmount = welcomePage.checkDisplayAccountAmount();
+
+
+            Console.WriteLine(displayAmount);
+
+            Assert.AreEqual(amount, displayAmount);
 
         }
     }
