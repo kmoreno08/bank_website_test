@@ -161,5 +161,23 @@ namespace KM_Bank.Tests
             Assert.That(current_URL, Is.EqualTo("http://www.kevinstevenmoreno.com/projects/KM_Bank_DB/welcome.php?login=success"));
 
         }
+
+        /* 
+       Check if the user account amount is positive
+       Test should pass
+       */
+        [Test]
+        public void Check_account_amount()
+        {
+            var homePage = new HomePage(driver);
+            var welcomePage = new WelcomePage(driver);
+            homePage.setUsername("test");
+            homePage.setPassword("test");
+            homePage.GoToWelcomePage();
+
+            var intAccountAmount = welcomePage.returnIntAccountAmount();
+            Assert.That(intAccountAmount, Is.GreaterThanOrEqualTo(0));
+
+        }
     }
 }
